@@ -81,7 +81,7 @@ analytics:
 # Site Author
 author:
   name             : "Your Sidebar Name"
-  avatar           : "profile.png"
+  avatar           : "real_profile.png"
   bio              : "Your biography for the left-hand sidebar"
   location         : "Location"
   employer         :
@@ -96,7 +96,7 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "academicpages"
+  github           : "jacobdanovitch"
   google_plus      :
   keybase          :
   instagram        :
@@ -123,6 +123,7 @@ include:
   - _pages
   - files
 exclude:
+  - 'vendor'
   - "*.sublime-project"
   - "*.sublime-workspace"
   - .asset-cache
@@ -145,7 +146,7 @@ exclude:
   - node_modules
   - package.json
   - tmp
-  - vendor
+  - notes.txt
 keep_files:
   - .git
   - .svn

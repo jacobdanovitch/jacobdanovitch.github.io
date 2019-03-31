@@ -1,0 +1,2 @@
+GEM_HOME=/home/jacobgdt/gems
+RUBY_CONFIGURE_OPTS=--with-openssl-dir=/home/jacobgdt/anaconda3/bin/openssl
