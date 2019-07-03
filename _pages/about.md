@@ -14,7 +14,7 @@ During the school year, I take honors computer science at Carleton University in
 
 I am currently looking to gain strong research experience to prepare for graduate studies, with the goal of becoming a research scientist. You can find my work [here](/research/). My general research interests include: 
 
-* Conversation analysis
+* Stylistic variation in language
 * Disinformation on social media
 * Augmenting NLP models/representations with structured data
 * Machine learning in sports (primarily NBA/MLB)
