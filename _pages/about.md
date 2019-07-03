@@ -8,9 +8,19 @@ redirect_from:
   - /about.html
 ---
 
-Hi, I'm Jacob. I'm a software engineering intern at Microsoft Cortana. During the school year, I take honors computer science at Carleton University in Ottawa, Canada, where I'm entering the senior year of my undergraduate degree. As well, I'm working towards an accelerated masters in computer science - with a concentration in data science - at the [Ottawa-Carleton Institute of Computer Science](https://carleton.ca/scs/mcs-accelerated-stream/).
+Hi, I'm Jacob. I'm a software engineering intern at Microsoft Cortana. This summer, I'm working on using deep learning to extract suggested meetings (including time, location, attendees, etc.) from emails in Outlook. 
 
-My current focus is on gaining strong research experience to prepare for graduate studies; you can find my current work [here](/research/). My general interests include interpreting the linguistic properties of embeddings, analyzing discourse at an author level, and a couple of fun basketball ideas I'd like to explore. In the long term, becoming a research scientist is my primary goal.
+During the school year, I take honors computer science at Carleton University in Ottawa, Canada, where I'm entering the senior year of my undergraduate degree. As well, I'm working towards a 5-year masters in computer science - with a concentration in data science - at the [Ottawa-Carleton Institute of Computer Science](https://carleton.ca/scs/mcs-accelerated-stream/). My coursework focuses on deep learning, information retrieval, and knowledge graphs.
 
+My current focus is on gaining strong research experience to prepare for graduate studies, with the goal of becoming a research scientist. You can find my work [here](/research/). My general research interests include: 
 
-<p class='notice'>(Note: This site is very new! Some content may be missing.)</p>
+<!--
+<ul>
+  <li></li>
+  <li></li>
+</ul> -->
+
+* Conversation analysis
+* Disinformation on social media
+* Augmenting NLP models/representations with structured data
+* Machine learning in sports (primarily NBA/MLB)

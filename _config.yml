@@ -81,10 +81,10 @@ analytics:
 # Site Author
 author:
   name             : "Jacob Danovitch"
-  avatar           : "real_profile.png"
-  bio              : "SWE Intern at Microsoft, BCS/accelerated MCS at Carleton University."
+  avatar           : "sf_headshot.jpg" # "real_profile.png"
+  bio              : "SWE Intern at Microsoft, 5-year MCS at Carleton University."
   location         : # "Ottawa"
-  employer         : "Microsoft AI&R"
+  employer         : "Microsoft (MSAI)"
   pubmed           : # "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
   googlescholar    : # "http://yourfullgooglescholarurl.com"
   email            : "jacob.danovitch@carleton.ca"
