@@ -82,7 +82,7 @@ analytics:
 author:
   name             : "Jacob Danovitch"
   avatar           : "sf_headshot.jpg" # "real_profile.png"
-  bio              : "SWE Intern at Microsoft, 5-year MCS at Carleton University."
+  bio              : "Data science intern at Microsoft. 5-year MCS at Carleton University."
   location         : # "Ottawa"
   employer         : "Microsoft (MSAI)"
   pubmed           : # "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
