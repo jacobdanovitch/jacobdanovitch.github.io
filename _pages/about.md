@@ -8,13 +8,13 @@ redirect_from:
   - /about.html
 ---
 
-Hi, I'm Jacob. I'm a software engineering intern at Microsoft Cortana. This summer, I'm working on using deep learning to extract suggested meetings (including time, location, attendees, etc.) from emails in Outlook. 
+Hi, I'm Jacob. I'm a data science intern at Microsoft Cortana. This past summer, I worked on using deep learning to extract suggested meetings from emails in Outlook, and extended this to develop a classification model for multi-turn conversations.
 
-During the school year, I take honors computer science at Carleton University in Ottawa, Canada, where I'm entering the senior year of my undergraduate degree. As well, I'm working towards a 5-year masters in computer science - with a concentration in data science - at the [Ottawa-Carleton Institute of Computer Science](https://carleton.ca/scs/mcs-accelerated-stream/). My coursework focuses on deep learning, information retrieval, and knowledge graphs.
+During the school year, I take honors computer science at Carleton University in Ottawa, Canada. I'm entering the senior year of my undergraduate degree, and I've been accepted to the 5-year masters track - with a concentration in data science - at the [Ottawa-Carleton Institute of Computer Science](https://carleton.ca/scs/mcs-accelerated-stream/). My coursework focuses on deep learning, information retrieval, and knowledge graphs.
 
 I am currently looking to gain strong research experience to prepare for graduate studies, with the goal of becoming a research scientist. You can find my work [here](/research/). My general research interests include: 
 
-* Stylistic variation in language
+* Linguistic variation in person-to-person conversation
 * Disinformation on social media
 * Augmenting NLP models/representations with structured data
 * Machine learning in sports (primarily NBA/MLB)
