@@ -8,7 +8,7 @@ citation: "Danovitch, J., & SalahEldeen, H. (2019). ReMemBERT: Recurrent Memory-
 
 Supervised by: [Hany SalahEldeen](https://scholar.google.com/citations?user=XpmZBggAAAAJ&hl=en)
 
-<i style='font-size: small'>Work primarily completed during internship at Microsoft.</i>
+<br/> <i style='font-size: small'>Work primarily completed during internship at Microsoft.</i>
 
 Intelligent assistants such as Google Assistant, Alexa, Siri, and Cortana, provide users with a natural language interface to complete many common tasks, such as setting an alarm, sending an email, or playing music, using only a brief utterance  (e.g., ”Alexa, play Despacito.”). However, they struggle in longer contexts such as multi-turn conversations.
 
