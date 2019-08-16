@@ -1,7 +1,8 @@
 ---
 title: "Disinformation in Canadian Political Discourse"
-excerpt: "Constructing a novel dataset of Canadian disinformation from Twitter, and analyzing its linguistic properties using deep learning. (in progress)"
+excerpt: "Constructing a novel dataset of Canadian disinformation from Twitter, and analyzing stylistic variations of malicious tweets using deep learning. (in progress)"
 collection: research
+permalink: /cu-disinfo
 ---
 
 (in progress)
