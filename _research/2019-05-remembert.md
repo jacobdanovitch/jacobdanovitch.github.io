@@ -3,6 +3,7 @@ title: "ReMemBERT: Recurrent Memory-Augmented BERT for Conversational Text Class
 excerpt: "Novel adaptation of BERT for text classification in multi-turn conversations."
 collection: research
 permalink: /remembert
+citation: "Danovitch, J., & SalahEldeen, H. (2019). ReMemBERT: Recurrent Memory-Augmented BERT for Conversational Text Classification. Technical report in preparation."
 ---
 
 Supervised by: [Hany SalahEldeen](https://scholar.google.com/citations?user=XpmZBggAAAAJ&hl=en)
