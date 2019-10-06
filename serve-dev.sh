@@ -1,3 +1,3 @@
 #!/bin/bash
 
-bundle exec jekyll build --config _config.yml,_config_dev.yml --watch
+bundle exec jekyll build --config _config.yml,_config.dev.yml --watch
