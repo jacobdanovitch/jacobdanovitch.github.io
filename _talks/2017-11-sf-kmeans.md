@@ -8,4 +8,4 @@ date: 2017-11-01
 location: ""
 ---
 
-[Slides](http://talks.jacobdanovitch.me/k_means.html)
+[Slides](http://talks.jacobdanovitch.me/stemfellowship/k_means.html)
