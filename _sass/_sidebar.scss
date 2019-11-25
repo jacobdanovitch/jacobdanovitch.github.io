@@ -78,8 +78,8 @@
 
   @include breakpoint($large) {
     display: block;
-    width: auto;
-    height: auto;
+    max-width: 175px;
+    max-height: 175px;
   }
 
   img {
@@ -89,6 +89,9 @@
     @include breakpoint($large) {
       padding: 5px;
       border: 1px solid $border-color;
+      object-fit: cover;
+      object-position: 0 75%;
+      transform: scale(1.15);
     }
   }
 }

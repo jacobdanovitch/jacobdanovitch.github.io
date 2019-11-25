@@ -1,15 +1,16 @@
 ---
-title: "ReMemBERT: Recurrent Memory-Augmented BERT for Conversational Text Classification"
-excerpt: "Novel adaptation of BERT for text classification in multi-turn conversations."
+title: "ReMemBERT: Recurrent Memory-augmented BERT for Conversational Text Classification"
+excerpt: "Adapting BERT for multi-turn conversations using MAC cells."
 collection: research
 permalink: /research/remembert
-citation: "Danovitch, J., & SalahEldeen, H. (2019). ReMemBERT: Recurrent Memory-Augmented BERT for Conversational Text Classification. Technical report in preparation."
+citation: "Danovitch, J., & SalahEldeen, H. (2019). <i>ReMemBERT: Recurrent Memory-augmented BERT for Conversational Text Classification.</i> Submitted to ACL 2020, Seattle, USA."
 ---
 
 Supervised by: [Hany SalahEldeen](https://scholar.google.com/citations?user=XpmZBggAAAAJ&hl=en)
 
-<br/> <i style='font-size: small'>Work primarily completed during internship at Microsoft.</i>
+Effectively leveraging context is a significant challenge in natural language processing. Tasks such as utterance classification, conversational recommendation, and question answering all require the incorporation of conversation history to understand the current dialog state.
 
-Intelligent assistants (IAs) such as Google Assistant, Alexa, Siri, and Cortana, provide users with a natural language interface to complete many common tasks, such as setting an alarm, sending an email, or playing music, using only a brief utterance  (e.g., ”Alexa, play Despacito.”). To move from isolated utterances to a more natural, conversational setting, IAs must be able to understand each turn of dialog within the greater conversational context.
+To this end, we propose an adaption of BERT using Memory, Attention, Composition (MAC) cells to integrate conversation history. We demonstrate applications to utterance classification on content moderation, dialog act classification, and emotion recognition tasks. We compare our method to several benchmarks, and show that the use of a conversation-aware model improves performance.
 
- To this end, we propose a memory-based adaption of BERT for tasks which involve classifying utterances within a conversation, such as intent, topic, dialog act, or emotion classification, which we unify as the task of 'conversational text classification'. We compare our method to several benchmarks, and show that the use of a conversation-aware model improves performance.
+
+<i class='small' style='/*font-size: small*/'>Work primarily completed during internship at Microsoft.</i>

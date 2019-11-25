@@ -42,6 +42,7 @@
 .archive__item-title {
   margin-bottom: 0.25em;
   font-family: $sans-serif-narrow;
+  font-size: $type-size-4a;
 
   a + a {
     opacity: 0.5;
@@ -90,6 +91,11 @@
    ========================================================================== */
 
 .list__item {
+
+  p {
+    font-size: $type-size-5a;
+  }
+
   @include breakpoint($medium) {
     padding-right: $right-sidebar-width-narrow;
   }
