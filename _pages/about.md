@@ -8,7 +8,9 @@ redirect_from:
   - /about.html
 ---
 
-Hi, I'm Jacob. I'm a data science intern at Microsoft Cortana. During the school year, I take honors computer science at Carleton University in Ottawa, Canada. I'm entering the senior year of my undergraduate degree, and I've been accepted to the 5-year masters track - with a concentration in data science - at the [Ottawa-Carleton Institute of Computer Science](https://carleton.ca/scs/mcs-accelerated-stream/). My coursework focuses on deep learning, information retrieval, and knowledge graphs. I'm also a TA for courses like Introduction to Web Development and [Storytelling with Data](http://www.davidmckie.com/professional-skills-data-storytelling-33310-jour-4401-a/).
+Hi, I'm Jacob. I'm a data science intern at Microsoft Cortana. During the school year, I take honors computer science at Carleton University in Ottawa, Canada. I'm in the senior year of my undergraduate degree, and I've been accepted to the accelerated masters stream - with a concentration in data science - at the [Ottawa-Carleton Institute of Computer Science](https://carleton.ca/scs/mcs-accelerated-stream/). 
+
+My [coursework](/education) has included deep learning, information retrieval, and knowledge graphs. I'm also a TA for courses like Introduction to Web Development and [Storytelling with Data](http://www.davidmckie.com/professional-skills-data-storytelling-33310-jour-4401-a-2/).
 
 ## What I'm Up To
 

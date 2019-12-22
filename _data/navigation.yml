@@ -9,9 +9,6 @@ main:
   - title: "Portfolio"
     url: /portfolio/
 
-  - title: "Talks"
-    url: /talks/    
-
   - title: "Education"
     url: /education/
 
@@ -20,6 +17,9 @@ main:
         
   # - title: "Blog Posts"
   #  url: /year-archive/
+
+  - title: "Talks"
+    url: "http://talks.jacobdanovitch.me"
     
   - title: "Résumé"
     url: "http://resume.jacobdanovitch.me"
