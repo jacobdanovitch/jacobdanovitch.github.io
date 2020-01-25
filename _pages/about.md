@@ -24,5 +24,5 @@ My [coursework](/education) has included deep learning, information retrieval, a
 * <b>August 16, 2019:</b> My [work](/research/twtc), <i style="font-style: italic">Trouble with the Curve: Predicting Future MLB Players Using Scouting Reports</i>, was accepted to the [2019 Carnegie Mellon Sports Analytics Conference](http://www.stat.cmu.edu/cmsac/)!    
   * <b>Update 10/2019:</b> I'll be presenting a 15-minute talk as a finalist in the reproducible research competition!
 * <b>July 26, 2019:</b> I completed my second internship at Microsoft (MSAI). 
-  * My work used deep learning to extract meeting suggestions from Outlook emails, and extended this to develop a [classification model](/research/remembert) for multi-turn conversations. This was part of a larger project, for which a patent is pending.
+  * My work used deep learning to extract meeting suggestions from Outlook emails, and extended this to develop a classification model for multi-turn conversations. This was part of a larger project, for which a patent is pending.
   * I'll be returning as a data scientist intern next summer!

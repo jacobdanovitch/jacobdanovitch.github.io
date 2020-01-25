@@ -4,6 +4,7 @@ excerpt: "We present an approach to leveraging context for text classification t
 collection: research
 permalink: /research/context-aware
 citation: "Danovitch, J., & SalahEldeen, H. (2019). <i>Compositional Attention Networks for Context-Aware Text Classification.</i> Submitted to ACL 2020, Seattle, USA."
+published: false
 ---
 
 Supervised by: [Hany SalahEldeen](https://scholar.google.com/citations?user=XpmZBggAAAAJ&hl=en)
