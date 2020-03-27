@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+  jekyll:
+    image: bretfisher/jekyll-serve
+    volumes:
+      - .:/site
+    ports:
+      - '8085:4000'
+    command: bundle exec jekyll s --force_polling -H 0.0.0.0 -P 4000 --livereload
