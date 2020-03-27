@@ -57,7 +57,7 @@ yandex_site_verification :
 
 # Social Sharing
 twitter:
-  username               : #&twitter
+  username               : "danolytics"
 facebook:
   username               :
   app_id                 :
@@ -82,7 +82,7 @@ analytics:
 author:
   name             : "Jacob Danovitch"
   avatar           : "10-19.jpg"
-  bio              : "Data science intern at Microsoft. Accelerated MCS stream at Carleton University."
+  bio              : "Data science intern at Microsoft. Incoming MSc. Machine Learning at MILA."
   location         : # "Ottawa"
   employer         : "Microsoft (MSAI)"
   pubmed           : # "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
@@ -99,7 +99,7 @@ author:
   github           : "jacobdanovitch"
   google_plus      :
   keybase          :
-  instagram        :
+  instagram        : "ja_danovitch"
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
   linkedin         : "jacobdanovitch"
@@ -109,7 +109,7 @@ author:
   stackoverflow    : # http://stackoverflow.com/users/123456/username
   steam            :
   tumblr           :
-  twitter          : # "replacethistwitterhandle"
+  twitter          : "danolytics"
   vine             :
   weibo            :
   xing             :
@@ -278,7 +278,7 @@ sass:
 permalink: /:categories/:title/
 # paginate: 5 # amount of posts to show
 # paginate_path: /page:num/
-timezone: America/Los_Angeles # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: America/Toronto # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
 # Plugins

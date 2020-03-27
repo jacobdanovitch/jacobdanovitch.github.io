@@ -1,10 +1,19 @@
-version: '2'
+# https://davemateer.com/2018/01/25/Jekyll-and-Docker
+# https://michaelsoolee.com/compile-jekyll-site-docker/
+# https://ddewaele.github.io/running-jekyll-in-docker/
+
+version: '3'
 
 services:
-  jekyll:
-    image: bretfisher/jekyll-serve
-    volumes:
-      - .:/site
+  jekyll: 
+    image: jekyll/jekyll:3.8
+    container_name: jacobdanovitch-github-io
+    environment:
+        - JEKYLL_ENV=docker
     ports:
-      - '8085:4000'
-    command: bundle exec jekyll s --force_polling -H 0.0.0.0 -P 4000 --livereload
+      - 4000:4000
+      - 35729:35729
+    volumes:
+        - ./:/srv/jekyll
+        # - ./vendor/bundle:/usr/local/bundle
+    command: jekyll serve -H 0.0.0.0 -P 4000 --config _config.yml,_config.dev.yml --force_polling --livereload     
