@@ -15,5 +15,6 @@ services:
       - 35729:35729
     volumes:
         - ./:/srv/jekyll
-        # - ./vendor/bundle:/usr/local/bundle
-    command: jekyll serve -H 0.0.0.0 -P 4000 --config _config.yml,_config.dev.yml --force_polling --livereload     
+    command: jekyll serve -H 0.0.0.0 -P 4000 --config _config.yml,_config.dev.yml  --incremental
+
+    # --force_polling --livereload

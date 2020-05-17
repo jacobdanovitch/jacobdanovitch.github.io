@@ -8,22 +8,23 @@ redirect_from:
   - /about.html
 ---
 
-Hi, I'm Jacob. I'm a data science intern at Microsoft Search, Assistant and Intelligence. This summer, I'll be graduating from the honors computer science program at Carleton University in Ottawa, Canada, where I worked with my wonderful supervisor Professor [Majid Komeili](http://people.scs.carleton.ca/~majidkomeili/) and TA'd for courses like Introduction to Web Development and [Storytelling with Data](http://www.davidmckie.com/professional-skills-data-storytelling-33310-jour-4401-a-2/).
 
-In the fall, I'll be starting my MSc. in Machine Learning at MILA with Professor [Reihaneh Rabbany](http://www.reirab.com/).
+Hi, I'm Jacob. I'm an incoming Master's student in Machine Learning at <a href="http://mila.quebec/en" class="btn btn--icon btn--inverse" style="width: 5rem"><i class="fac fa-mila fa-fw" aria-hidden="true"></i> MILA</a> and data science intern at <a href="https://www.microsoft.com/en-us/research/group/msai/" class="btn btn--icon btn--inverse"><img class="icon--custom" src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" style="transform: translate(-1px, -1px);"> Microsoft Search, Assistant and Intelligence</a>. This summer, I'll be graduating from the honors computer science program at Carleton University in Ottawa, Canada, where I worked with my wonderful supervisor Professor [Majid Komeili](http://people.scs.carleton.ca/~majidkomeili/) and TA'd for courses like Introduction to Web Development and [Storytelling with Data](http://www.davidmckie.com/professional-skills-data-storytelling-33310-jour-4401-a-2/).
+
+I'll be starting my MSc. in the fall (online, for now!) with Professor [Reihaneh Rabbany](http://www.reirab.com/).
 
 ## What I'm Up To
 
 * Socially distancing
-* I'm involved in [research](/research/) at my school and independently.
-  * I'm currently writing my [senior thesis](/research/thesis).
+* [Research](/publications/)
+  * Extending my [senior thesis](/publications/thesis) (code+paper coming soon).
   * I also work on information retrieval and applications of machine learning to sports (primarily NBA/MLB).
 
 ## Updates
 
-* <b>March 13, 2020:</b> I got engaged!
-* <b>August 16, 2019:</b> My [work](/research/twtc), <i style="font-style: italic">Trouble with the Curve: Predicting Future MLB Players Using Scouting Reports</i>, was accepted to the [2019 Carnegie Mellon Sports Analytics Conference](http://www.stat.cmu.edu/cmsac/)!    
-  * <b>Update 10/2019:</b> I'll be presenting a 15-minute talk as a finalist in the reproducible research competition!
-* <b>July 26, 2019:</b> I completed my second internship at Microsoft (MSAI). 
-  * My work used deep learning to extract meeting suggestions from Outlook emails, and extended this to develop a classification model for multi-turn conversations. This was part of a larger project, for which a patent is pending.
-  * I'll be returning as a data scientist intern next summer!
+* **June 1, 2020**: Started a data science internship at Microsoft.
+* **May 12, 2020:** Here are the results of my graduate school applications as well as some supporting materials, for anyone who feels unsure about the process like I did. [(repo)](https://github.com/jacobdanovitch/Graduate-Applications)
+* **March 13, 2020:** I got engaged!
+* **2019**:
+  * **August**: My [work](/publications/twtc), <i style="font-style: italic">Trouble with the Curve: Predicting Future MLB Players Using Scouting Reports</i>, was a finalist in the reproducible research competition at the the [2019 Carnegie Mellon Sports Analytics Conference](http://www.stat.cmu.edu/cmsac/).
+  * **July**: I completed my second internship at Microsoft (MSAI), using deep learning to extract meeting suggestions from Outlook emails.This was part of a larger project, for which a patent is pending.

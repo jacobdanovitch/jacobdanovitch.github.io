@@ -1,10 +1,11 @@
 ---
 title: "Linking Social Media Posts to News with Siamese Transformers"
 excerpt: "We design an efficient Siamese architecture to minimize the distance between embeddings of articles and their comments."
-collection: research
-permalink: /research/newslinking
+collection: publications
+permalink: /publications/newslinking
 paperurl: "https://arxiv.org/abs/2001.03303"
 date: 2020-01-10
+venue: "NLCA"
 citation: "Danovitch, J. (2019). <i>Linking Social Media Posts to News with Siamese Transformers.</i>  International Conference on Natural Language Computing Advances (NLCA), Vancouver, CA."
 bibtex: "@misc{danovitch2020linking,\n
     title={Linking Social Media Posts to News with Siamese Transformers},\n
@@ -14,6 +15,7 @@ bibtex: "@misc{danovitch2020linking,\n
     archivePrefix={arXiv},\n
     primaryClass={cs.IR}\n
 }"
+repo: "https://github.com/jacobdanovitch/jdnlp"
 ---
 
 Many computational social science projects examine online discourse surrounding a specific event, such as natural disasters, sporting matches, and political events.  A costly bottleneck in this work is collecting relevant social media posts. Normally, an initial corpus would be collected using a high-recall, low-precision keyword search, and filtered manually by human judges.

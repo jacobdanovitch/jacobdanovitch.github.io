@@ -2,6 +2,18 @@
    BUTTONS
    ========================================================================== */
 
+.fa-mila {
+  color: #7a2879; 
+  font-size: x-small;
+  transform: translate(-14px, -10px) scale(0.75);
+  margin: 0 6px;
+}
+
+.icon--custom {
+  width: 15px; 
+  height: 100%; 
+}
+
 /*
    Default button
    ========================================================================== */
@@ -23,6 +35,9 @@
   cursor: pointer;
 
   &:hover {
+    transition: all 0.1s ease-out;
+    box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+    top: -4px;
     background-color: mix(white, #000, 20%);
   }
 
@@ -33,6 +48,8 @@
   .icon + .hidden {
     margin-left: -0.5em; /* override for hidden text*/
   }
+
+  
 
   /* fills width of parent container */
 
@@ -149,5 +166,13 @@
 
   &--small {
     font-size: $type-size-7;
+  }
+
+  &--icon {
+    color: black !important;
+    background-color: white;
+    border: 0.5px solid lightgrey !important;
+    font-weight: lighter;
+    text-decoration: none !important;
   }
 }

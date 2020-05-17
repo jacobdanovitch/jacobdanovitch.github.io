@@ -34,21 +34,25 @@ layout: default
           <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ page.modified | date: "%Y-%m-%d" }}">{{ page.modified | date: "%B %d, %Y" }}</time></p>
         {% endif %}
         
-        {% if page.collection == 'teaching' %}
-          <p> {{ page.type }}, <i>{{ page.venue }}</i>, {{ page.date | default: "1900-01-01" | date: "%Y" }} </p>
-        {% elsif page.venue and page.date %}
-          <p>Published in <i>{{ page.venue }}</i>, {{ page.date | default: "1900-01-01" | date: "%Y" }} </p>
-        {% elsif page.date %}
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></p>
-        {% endif %}
-        
-             
-        {% if page.citation and page.paperurl %}
-          <p>Recommended citation: {{ page.citation }} <a href="{{ page.paperurl }}"><u>{{ page.paperurl }}</u></a></p>
-        {% elsif page.citation %}
-          <p>Recommended citation: {{ page.citation }} </p>
-        {% endif %}
-    
+          <div style="margin-bottom: 3rem;">
+            {% if page.collection == 'teaching' %}
+              <span> {{ page.type }}, <i>{{ page.venue }}</i>, {{ page.date | default: "1900-01-01" | date: "%Y" }} </span>
+            {% elsif page.venue and page.date %}
+              <a href="{{ page.paperurl }}" class="btn" style="background-color: #236bd6;">
+                <i class="ai ai-open-access-square" aria-hidden="true" style="font-size: 1.25em;"></i>
+                {{ page.venue }}, {{ page.date | default: "1900-01-01" | date: "%Y" }} 
+              </a>
+            {% elsif page.date %}
+              <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></span>
+            {% endif %}
+
+            {% if page.repo %}
+              <a href="{{ page.repo }}" class="btn btn--github" style="background-color: black; float: right;" title="View on GitHub">
+                <i class="fab fa-github" aria-hidden="true"></i>
+                <span>{{ page.repo | remove: "https://github.com/" }}</span>
+              </a>
+            {% endif %}
+          </div>
         </header>
       {% endunless %}
 
@@ -56,6 +60,29 @@ layout: default
         {{ content }}
         {% if page.link %}<div><a href="{{ page.link }}" class="btn">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
       </section>
+      
+      {% if page.citation or page.paperurl %}
+        <h3>Recommended citation</h3>
+        <details>
+          <summary></summary>
+          {% if page.bibtex %}
+            <code style="font-size: smaller; white-space: pre-wrap;">
+              {{ page.bibtex | replace: "\n", "\n&nbsp;&nbsp;&nbsp;&nbsp;" | newline_to_br | replace: "<br>", "<br>&nbsp;&nbsp;&nbsp;&nbsp;" }}
+            </code>
+            <script>
+              $("code > br:not(:last)").replaceWith("<br>&nbsp;&nbsp;&nbsp;&nbsp;")
+            </script>
+          {% endif %}
+          {% if page.bibtex and page.citation %}
+          <p>or</p>
+          {% endif %}
+          {% if page.citation and page.paperurl %}
+              <p>{{ page.citation }} <a href="{{ page.paperurl }}"><u>{{ page.paperurl }}</u></a></p>
+            {% elsif page.citation %}
+              <p>{{ page.citation }} </p>
+          {% endif %}
+        </details>
+      {% endif %}
 
       <footer class="page__meta">
         {% if site.data.ui-text[site.locale].meta_label %}
