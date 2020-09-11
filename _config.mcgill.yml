@@ -1,0 +1,14 @@
+# McGill override settings
+
+url: https://www.cs.mcgill.ca/~jdanov2
+
+analytics:
+  provider: false
+
+comments:
+  disqus:
+    shortname            : "mmistakes-dev"
+
+sass:
+  style: expanded
+

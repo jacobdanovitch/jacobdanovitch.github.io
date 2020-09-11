@@ -82,12 +82,12 @@ analytics:
 author:
   name             : "Jacob Danovitch"
   avatar           : "10-19.jpg"
-  bio              : "Data science intern at Microsoft. Incoming MSc. Machine Learning at MILA."
+  bio              : "Data science intern at Microsoft / MSc. Machine Learning at MILA"
   location         : # "Toronto"
   employer         : "Microsoft (MSAI)"
   pubmed           : # "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
   googlescholar    : "https://scholar.google.ca/citations?hl=en&user=bQTv8rkAAAAJ"
-  email            : "jacob.danovitch@mail.mcgill.ca"
+  email            : "jacob.danovitch@mila.quebec"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
@@ -147,6 +147,8 @@ exclude:
   - package.json
   - tmp
   - notes.txt
+  - docker-compose.yml
+  - scripts
 keep_files:
   - .git
   - .svn
