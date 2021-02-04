@@ -111,12 +111,7 @@ The bAbI dataset (different paper, same authors) was designed to measure certain
 * Correctly predict the answer `\(a\)` given `\(q, x\)`
   * Or, maximize `\(p(a|q,x)\)`
 * Each `\(a\)` is one word from the bAbI vocabulary
-  * More of a classification task than generation/language modeling
   
-???
-
-**double check the classification part**
-
 ---
 
 # Contributions
@@ -416,9 +411,66 @@ class PositionalEmbeddingBag(nn.Embedding):
 
 # Training
 
-&lt;!-- --- --&gt;
-&lt;!-- ```{r child = 'sections/results.Rmd'} --&gt;
-&lt;!-- ``` --&gt;
+---
+
+class: inverse, center, middle
+
+# Experiments
+
+&lt;hr/&gt;
+
+---
+
+# Experiments
+
+.middle-content[
+Two sets of experiments:
+
+1. Synthetic Q&amp;A 
+2.  Language Modeling
+
+]
+
+---
+
+# Synthetic Q&amp;A
+
+.middle-content[
+|                                                          |                                                           |                                                                        |
+|:---------------------------------------------------------|:----------------------------------------------------------|:-----------------------------------------------------------------------|
+| Sam walks into the kitchen                               | Brian is a lion                                           | Mary journeyed to the den.                                             |
+| Sam picks up an apple                                    | Julius is a lion                                          | Mary went back to the kitchen.                                         |
+| Sam walks into the bedroom                               | Julius is white                                           | John journeyed to the bedroom.                                         |
+| Sam drops the apple                                      | Bernhard is green                                         | Mary discarded the milk.                                               |
+| &lt;span style="color: blue"&gt;Q: Where is the apple? &lt;/span&gt; | &lt;span style="color: blue"&gt;Q: What color is Brian? &lt;/span&gt; | &lt;span style="color: blue"&gt;Q: Where was the milk before the den?&lt;/span&gt; |
+| &lt;span style="color: red"&gt;A: Bedroom &lt;/span&gt;              | &lt;span style="color: red"&gt;A: White &lt;/span&gt;                 | &lt;span style="color: red"&gt;A: Hallway&lt;/span&gt;                             |
+]
+
+---
+
+# Synthetic Q&amp;A: Results
+
+.center[
+![](sections/img/table1.png)
+]
+
+---
+
+# Language Modeling
+
+Datasets:
+ - Penn Treebank
+	 - About one million words from Wall Stree Journal articles.
+ - Text8
+	 - First 100 million characters of Wikipedia
+
+---
+
+# Language Modeling: Results
+
+.center[
+![](sections/img/table2.png)
+]
 
 &lt;!-- --- --&gt;
 &lt;!-- ```{r child = 'sections/related.Rmd'} --&gt;

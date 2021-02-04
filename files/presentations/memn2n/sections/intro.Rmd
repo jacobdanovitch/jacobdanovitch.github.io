@@ -1,0 +1,97 @@
+class: inverse, center, middle
+
+# Introduction
+
+<hr>
+
+---
+
+# Problem Statement
+
+Developing models capable of "reasoning" has long been a goal of AI and deep learning researchers. While this is a loose term, it can be broken into several key types.
+
+--
+
+**Sequential reasoning**: Processing sequential data with long-range dependencies
+
+--
+
+**Compositional reasoning**: Combining multiple concepts present in the data to form novel concepts
+
+--
+
+**Symbolic reasoning**: Manipulating explicit, human-readable symbols present in the data
+
+--
+
+These are all important components of human(-like) intelligence. Deep learning methods face several challenges on this front, particularly in the scopes of compositional and symbolic reasoning.
+
+???
+
+* Symbolic reasoning
+  * Applicability to algorithm execution, theorem proving, constrained text generation
+  * Things that need *exact* answers
+
+---
+
+# bAbI Dataset
+
+The bAbI dataset (different paper, same authors) was designed to measure certain human-like reasoning capabilities of dialog agents:
+
+
+> [...] a set of proxy tasks that evaluate reading comprehension via question answering. Our tasks **measure understanding** in several ways: whether a system is able to **answer questions via chaining facts, simple induction, deduction** and many more. The tasks are designed to be prerequisites for any system that aims to be **capable of conversing with a human**.
+
+
+.footnote[
+[Towards AI-Complete Question Answering: A Set of Prerequisite Toy Tasks](https://arxiv.org/abs/1502.05698)
+]
+
+---
+
+# bAbI Dataset
+
+.middle-content[
+|                                                          |                                                           |                                                                        |
+|:---------------------------------------------------------|:----------------------------------------------------------|:-----------------------------------------------------------------------|
+| Sam walks into the kitchen                               | Brian is a lion                                           | Mary journeyed to the den.                                             |
+| Sam picks up an apple                                    | Julius is a lion                                          | Mary went back to the kitchen.                                         |
+| Sam walks into the bedroom                               | Julius is white                                           | John journeyed to the bedroom.                                         |
+| Sam drops the apple                                      | Bernhard is green                                         | Mary discarded the milk.                                               |
+| <span style="color: blue">Q: Where is the apple? </span> | <span style="color: blue">Q: What color is Brian? </span> | <span style="color: blue">Q: Where was the milk before the den?</span> |
+| <span style="color: red">A: Bedroom </span>              | <span style="color: red">A: White </span>                 | <span style="color: red">A: Hallway</span>                             |
+]
+
+???
+
+* Tie back to sequential/compositional/symbolic logic
+
+---
+
+# Task Definition
+
+## Data format
+
+* Story $x = \{x_{1}, x_{2}, ..., x_{n}\}$
+  * Each $x_i$ is a _sentence_ of _multiple words_; $x_i = \{x_{i1}, x_{i2}, ..., x_{in}\}$
+* Query <span style="color: blue">
+$q$
+</span>
+* Answer <span style="color: red">
+$a$
+</span>
+
+## Goal
+
+* Correctly predict the answer $a$ given $q, x$
+  * Or, maximize $p(a|q,x)$
+* Each $a$ is one word from the bAbI vocabulary
+  
+---
+
+# Contributions
+
+.middle-content[
+The authors present the End-to-End Memory Network as a method for sequentially reading from a large, external memory. The model uses soft attention to retrieve and compose symbols from memory, updating an internal state over multiple timesteps (or "hops").
+
+The authors demonstrate that the model can be trained end-to-end with backpropagation - in contrast to hard attention-based alternatives - and achieves strong performance on bAbI. They also demonstrate the importance of multi-hop reasoning and propose several extensions for improving efficiency and performance. 
+]

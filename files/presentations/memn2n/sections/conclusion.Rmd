@@ -1,0 +1,7 @@
+class: inverse, middle, center
+
+# Thanks for listening!
+
+<hr/>
+
+Questions?

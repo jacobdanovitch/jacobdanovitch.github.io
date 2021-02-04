@@ -1,0 +1,58 @@
+class: inverse, center, middle
+
+# Experiments
+
+<hr/>
+
+---
+
+# Experiments
+
+.middle-content[
+Two sets of experiments:
+
+1. Synthetic Q&A 
+2.  Language Modeling
+
+]
+
+---
+
+# Synthetic Q&A
+
+.middle-content[
+|                                                          |                                                           |                                                                        |
+|:---------------------------------------------------------|:----------------------------------------------------------|:-----------------------------------------------------------------------|
+| Sam walks into the kitchen                               | Brian is a lion                                           | Mary journeyed to the den.                                             |
+| Sam picks up an apple                                    | Julius is a lion                                          | Mary went back to the kitchen.                                         |
+| Sam walks into the bedroom                               | Julius is white                                           | John journeyed to the bedroom.                                         |
+| Sam drops the apple                                      | Bernhard is green                                         | Mary discarded the milk.                                               |
+| <span style="color: blue">Q: Where is the apple? </span> | <span style="color: blue">Q: What color is Brian? </span> | <span style="color: blue">Q: Where was the milk before the den?</span> |
+| <span style="color: red">A: Bedroom </span>              | <span style="color: red">A: White </span>                 | <span style="color: red">A: Hallway</span>                             |
+]
+
+---
+
+# Synthetic Q&A: Results
+
+.center[
+![](sections/img/table1.png)
+]
+
+---
+
+# Language Modeling
+
+Datasets:
+ - Penn Treebank
+	 - About one million words from Wall Stree Journal articles.
+ - Text8
+	 - First 100 million characters of Wikipedia
+
+---
+
+# Language Modeling: Results
+
+.center[
+![](sections/img/table2.png)
+]

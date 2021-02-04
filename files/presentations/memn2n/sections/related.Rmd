@@ -1,0 +1,33 @@
+class: inverse, center, middle
+
+# Results
+
+<hr/>
+
+---
+
+# Evaluation
+
+.middle-content[
+The main draw of HashGNN is that retrieval can be performed in sublinear time, using an inverted index or approximate k-Nearest Neighbors index (especially those optimized for sparse and/or integer data). The top $k$ candidates are retrieved by Hamming distance, the minimum edit distance between two bit-strings.
+
+This is significantly more efficient than pairwise approaches - which must make a prediction for each candidate in the collection - and slightly more efficient than approximate kNN for continuous data (but much more space-efficient).
+]
+
+---
+
+# Datasets
+
+.middle-content.center[
+![](sections/img/content/datasets.png)
+]
+
+
+
+---
+
+# Okay, but does it work?
+
+.middle-content.center[
+![](sections/img/content/metrics.png)
+]

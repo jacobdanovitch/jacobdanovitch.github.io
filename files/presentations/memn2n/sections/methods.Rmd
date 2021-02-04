@@ -1,0 +1,286 @@
+class: inverse, center, middle
+
+# Proposed Method
+
+<hr>
+
+End-to-End Memory Networks
+
+---
+
+# Model Architecture
+
+.middle-content.center[
+![](https://paperswithcode.com/media/methods/new_memRNN4.jpg)
+]
+
+???
+
+a. A single layer version of our model. 
+b. A three layer version of our model. In practice, we can constrain several of the embedding matrices to be the same
+
+---
+
+# Sentence Representation
+
+```python
+class MemoryLayer(nn.Module):
+    def __init__(self, num_vocab: int, embedding_dim: int):
+      self.A = nn.Embedding(num_vocab, embedding_dim)
+      self.C = nn.Embedding(num_vocab, embedding_dim)
+      
+    def forward(self, query: torch.Tensor, story: torch.Tensor):
+        u = self.C(query) # Batch x words x dim
+        
+        m_A = self.A(story) # Batch x sentences x words x dim
+        m_C = self.C(story) # ^^^
+```
+
+.bottom-content[
+> ... the bag-of-words (BoW) representation that takes the sentence $x_i = \{x_{i1}, x_{i2}, ..., x_{in}\},$ embeds each word ... <span style="color: white">sums the resulting vectors: e.g $m_i = \sum_j Ax_{ij}$ and $c_i = \sum_j Cx_{ij}$.</span>
+]
+
+---
+
+# Sentence Representation
+
+```python
+class MemoryLayer(nn.Module):
+    def __init__(self, num_vocab: int, embedding_dim: int):
+      self.A = nn.EmbeddingBag(num_vocab, embedding_dim)
+      self.C = nn.EmbeddingBag(num_vocab, embedding_dim)
+      
+    def forward(self, query: torch.Tensor, story: torch.Tensor):
+        u = self.C(query) # Batch x dim
+        
+        m_A = self.A(story) # Batch x sentences x dim
+        m_C = self.C(story) # ^^^
+```
+
+.bottom-content[
+> ... the bag-of-words (BoW) representation that takes the sentence $x_i = \{x_{i1}, x_{i2}, ..., x_{in}\},$ embeds each word and sums the resulting vectors: e.g $m_i = \sum_j Ax_{ij}$ and $c_i = \sum_j Cx_{ij}$.
+]
+
+---
+
+# Input Memory Representation
+
+```python
+class MemoryLayer(nn.Module):
+    def __init__(self, num_vocab: int, embedding_dim: int):
+      self.A = nn.EmbeddingBag(num_vocab, embedding_dim)
+      self.C = nn.EmbeddingBag(num_vocab, embedding_dim)
+      
+    def forward(self, query: torch.Tensor, story: torch.Tensor, u: torch.Tensor = None):
+        if u is None:
+          u = self.C(query) # Batch x dim
+        
+        m_A = self.A(story) # Batch x sentences x dim
+        m_C = self.C(story) # ^^^
+        
+        p = F.softmax((m_A @ u.unsqueeze(-1)).squeeze(-1), dim=-1)
+```
+
+.bottom-content[
+> In the embedding space, we compute the match between $u$ and each memory $m_i$ by taking the inner product followed by a softmax:
+$$p_i = \textrm{softmax}(u^T m_i)$$
+]
+
+---
+
+# Output Memory Representation
+
+```python
+class MemoryLayer(nn.Module):
+    def __init__(self, num_vocab: int, embedding_dim: int):
+      self.A = nn.EmbeddingBag(num_vocab, embedding_dim)
+      self.C = nn.EmbeddingBag(num_vocab, embedding_dim)
+      
+    def forward(self, query: torch.Tensor, story: torch.Tensor, u: torch.Tensor = None):
+        if u is None:
+          u = self.C(query) # Batch x dim
+        
+        m_A = self.A(story) # Batch x sentences x dim
+        m_C = self.C(story) # ^^^
+        
+        p = F.softmax((m_A @ u.unsqueeze(-1)).squeeze(-1), dim=-1)
+        o_k = p.unsqueeze(1).bmm(m_C).squeeze(1)
+    
+        return o_k
+```
+
+.bottom-content[
+> The response vector from the memory $o$ is then a sum over the transformed inputs $c_i$, weighted by the probability vector from the input:
+$$o = \sum_i p_i c_i$$
+
+]
+
+
+---
+
+# End-to-End Memory Network 
+
+```python
+class MemoryNetwork(nn.Module):
+    def __init__(self, num_vocab, embedding_dim, sentence_size, max_hops):
+        super().__init__()
+        self.memory_layers = nn.ModuleList([MemoryLayer(
+          num_vocab, 
+          embedding_dim, 
+          sentence_size
+        ) for _ in range(max_hops)])
+
+    def forward(self, query, story):
+        u = self.memory_layers[0](query, story, u=None)
+        
+        for memory_layer in self.memory_layers[1:]:
+            u = u + memory_layer(query, story, u)
+```
+
+.bottom-content[
+> The input to layers above the first is the sum of the output $o^k$
+and the input $u^k$ from layer $k$ [...]:
+$$u^{k+1} = u^k + o^k$$
+
+]
+
+???
+
+* different ways to combine $o^k$ and $u^k$ are proposed later
+
+---
+
+# End-to-End Memory Network 
+
+```python
+class MemoryNetwork(nn.Module):
+    def __init__(self, num_vocab, embedding_dim, sentence_size, max_hops):
+        super().__init__()
+        self.memory_layers = nn.ModuleList([MemoryLayer(
+          num_vocab, 
+          embedding_dim, 
+          sentence_size
+        ) for _ in range(max_hops)])
+        self.fc_logits = nn.Linear(embedding_dim, num_vocab)
+
+    def forward(self, query, story):
+        u = self.memory_layers[0](query, story, u=None)
+        
+        for memory_layer in self.memory_layers[1:]:
+            u = u + memory_layer(query, story, u)
+       
+        a_hat = self.fc_logits(u)
+        return F.softmax(a_hat, dim=-1)
+```
+
+.bottom-content[
+>  the sum of the output vector $o$ and the input embedding $u$ is then passed through a final weight matrix $W$ (of size $V × d$) and a softmax to produce the predicted label:
+$$\hat{a} = \textrm{softmax}(W(o + u))$$
+
+]
+
+---
+
+# Weight Sharing
+
+```python
+class MemoryNetwork(nn.Module):
+    def __init__(self, num_vocab, embedding_dim, sentence_size, max_hops):
+        super().__init__()
+        
+        A = nn.EmbeddingBag(num_vocab, embedding_dim)
+        C = nn.EmbeddingBag(num_vocab, embedding_dim)
+        # layer-wise tying (RNN-like)
+        self.memory_layers = nn.ModuleList([MemoryLayer(A, C) for _ in range(max_hops)])
+        self.fc_logits = nn.Linear(embedding_dim, num_vocab)
+
+    def forward(self, query, story):
+        u = self.memory_layers[0](query, story, u=None)
+        
+        for memory_layer in self.memory_layers[1:]:
+            u = u + memory_layer(query, story, u)
+       
+        a_hat = self.fc_logits(u)
+        return F.softmax(a_hat, dim=-1)
+```
+
+---
+
+# Positional Encoding
+
+```python
+class MemoryNetwork(nn.Module):
+    def __init__(self, num_vocab, embedding_dim, sentence_size, max_hops):
+        super().__init__()
+        # Static encodings to add position information
+        A = PositionalEmbeddingBag(num_vocab, embedding_dim, sentence_size)
+        C = PositionalEmbeddingBag(num_vocab, embedding_dim, sentence_size)
+        # layer-wise tying (RNN-like)
+        self.memory_layers = nn.ModuleList([MemoryLayer(A, C) for _ in range(max_hops)])
+        self.fc_logits = nn.Linear(embedding_dim, num_vocab)
+
+    def forward(self, query, story):
+        u = self.memory_layers[0](query, story, u=None)
+        
+        for memory_layer in self.memory_layers[1:]:
+            u = u + memory_layer(query, story, u)
+       
+        a_hat = self.fc_logits(u)
+        return F.softmax(a_hat, dim=-1)
+```
+
+---
+
+# Positional Encoding
+
+```python
+class PositionalEncoding(nn.Module):
+    def __init__(self, sentence_size, embedding_dim):
+        super().__init__()
+        self.register_buffer('encoding', self.get_encoding(sentence_size, embedding_dim))
+
+    def forward(self, x, dim=-2):
+        while (encoding := self.encoding).dim() < x.dim():
+            encoding = encoding.unsqueeze(0)
+        return torch.sum(x * encoding.expand_as(x), dim=dim)
+
+    @staticmethod
+    def get_encoding(sentence_size, embedding_dim):
+        encoding = torch.ones((embedding_dim, sentence_size))
+        i, j = torch.cartesian_prod(
+            torch.arange(1, embedding_dim + 1), 
+            torch.arange(1, sentence_size + 1)
+        ).t()
+
+        encoding[(i - 1, j - 1)] = (
+          (i - (embedding_dim+1)/2) * (j - (sentence_size+1)/2)
+        )
+        encoding = 1 + 4 * encoding / embedding_dim / sentence_size
+        encoding[:, -1] = 1.0
+        return encoding.t()
+```
+
+---
+
+# Positional Encoding
+
+```python
+class PositionalEmbeddingBag(nn.Embedding):
+    def __init__(self, vocab_size, embedding_dim, sentence_size, **kwargs):
+        super().__init__(vocab_size, embedding_dim, **kwargs)
+        self.encoding = PositionalEncoding(sentence_size, embedding_dim)
+
+    def forward(self, x, dim: int = -2):
+        embedded = super().forward(x)
+        pos_aware = self.encoding(embedded, dim=dim)
+        return pos_aware
+```
+
+???
+
+* Also mention temporal encoding, time permitting
+
+
+---
+
+# Training
