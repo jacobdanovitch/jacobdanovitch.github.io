@@ -1,0 +1,67 @@
+:root {
+  --main-color: #cf4037;
+  --logo: url(../../templates/img/mcgill_logo.png)
+}
+
+.logo {
+  background-image: var(--logo);
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: -2.25em;
+  right: 1em;
+  width: 175px;
+  height: 175px;
+  z-index: 0;
+}
+
+.remark-slide-content {
+  background-color: white; /* #FAFAFA; */
+  border-top: 80px solid var(--main-color);
+}
+
+hr, .title-slide h2::after, .mline h1::after {
+  color: var(--main-color);
+  background-color: var(--main-color);
+}
+
+.inverse {
+  background-color: var(--main-color);
+  /* color: #1A292C; */
+}
+
+.inverse hr {
+  background-color: white;
+  color: white;
+}
+
+.title-slide {
+  background-color: #FAFAFA;
+  border-top: 80px solid #FAFAFA;
+}
+
+.crop {
+  max-height: 500px; 
+  overflow: hidden;
+}
+
+.footnote {
+  font-size: 50%;
+}
+
+
+.middle-content {
+  /* https://stackoverflow.com/a/27532367 */
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.bottom-content {
+  /* https://stackoverflow.com/questions/2015032/align-divs-to-bottom-or-baseline */
+  position: absolute; 
+  bottom: 0; 
+  left: 0;
+}

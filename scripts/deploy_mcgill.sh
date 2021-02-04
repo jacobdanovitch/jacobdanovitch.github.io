@@ -1,3 +1,3 @@
 #!/bin/bash
 
-rsync --progress -avzn _site/ jdanov2@mimi.cs.mcgill.ca:~/public_html/
+rsync --progress -avz _site/ jdanov2@mimi.cs.mcgill.ca:~/public_html/
