@@ -46,7 +46,7 @@ Two sets of experiments:
 .middle-content[
 Datasets:
  - Penn Treebank
-	 - About one million words from Wall Stree Journal articles.
+	 - About one million words from Wall Street Journal articles.
  - Text8
 	 - First 100 million characters of Wikipedia
 ]

@@ -6,15 +6,15 @@ class: inverse, center, middle
 
 ---
 
-# Literature
-
-### Past
+# Past
 
 * *Memory Networks* (Weston et al. 2015)
   * Similar idea, but problem: hard max
   * When you query you select the best key... but then can't backpropagate.
 
-### Present
+---
+
+# Present
 
 * Dominant tool: transformer
 * From *Attention is All You Need* (Vaswani et al. 2017)
@@ -22,7 +22,9 @@ class: inverse, center, middle
     * More efficient computationally, so we can use big datasets.
     * Everything connected in constant operations instead of scaling with number of hops.
 
-### Future?
+---
+
+# Future?
 
 * Example: *Hopfield Networks is All You Need* (Ramsauer et al. 2020)
     * A different memory mechanism.
