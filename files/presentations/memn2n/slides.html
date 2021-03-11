@@ -366,8 +366,8 @@ class PositionalEncoding(nn.Module):
         self.register_buffer('encoding', self.get_encoding(sentence_size, embedding_dim))
 
     def forward(self, x, dim=-2):
-        while (encoding := self.encoding).dim() &lt; x.dim():
-            encoding = encoding.unsqueeze(0)
+        encoding = self.encoding
+        while encoding.dim() &lt; x.dim(): encoding = encoding.unsqueeze(0)
         return torch.sum(x * encoding.expand_as(x), dim=dim)
 
     @staticmethod
@@ -410,6 +410,24 @@ class PositionalEmbeddingBag(nn.Embedding):
 ---
 
 # Training
+
+.middle-content[
+
+* 10% of bAbI used as holdout
+* Trained for 100 epochs with batch size `\(= 32\)`
+  * Cost is not averaged per batch
+* Learning rate of `\(0.01\)`, halved every 25 epochs
+* Gradients rescaled to have a maximum norm of `\(40\)`
+* Linear start
+  * Removing every softmax operation except for the final answer prediction
+  * Re-insert when validation loss stops improving
+
+]
+
+???
+
+* The capacity of memory is restricted to the most recent 50 sentences
+* Linear start: LR = `\(0.005\)`
 
 ---
 
@@ -458,11 +476,13 @@ Two sets of experiments:
 
 # Language Modeling
 
+.middle-content[
 Datasets:
  - Penn Treebank
 	 - About one million words from Wall Stree Journal articles.
  - Text8
 	 - First 100 million characters of Wikipedia
+]
 
 ---
 
@@ -472,13 +492,58 @@ Datasets:
 ![](sections/img/table2.png)
 ]
 
-&lt;!-- --- --&gt;
-&lt;!-- ```{r child = 'sections/related.Rmd'} --&gt;
-&lt;!-- ``` --&gt;
+---
 
-&lt;!-- --- --&gt;
-&lt;!-- ```{r child = 'sections/conclusion.Rmd'} --&gt;
-&lt;!-- ``` --&gt;
+class: inverse, center, middle
+
+# Related Work
+
+&lt;hr/&gt;
+
+---
+
+# Literature
+
+### Past
+
+* *Memory Networks* (Weston et al. 2015)
+  * Similar idea, but problem: hard max
+  * When you query you select the best key... but then can't backpropagate.
+
+### Present
+
+* Dominant tool: transformer
+* From *Attention is All You Need* (Vaswani et al. 2017)
+    * Recurrent attention -&gt; self attention
+    * More efficient computationally, so we can use big datasets.
+    * Everything connected in constant operations instead of scaling with number of hops.
+
+### Future?
+
+* Example: *Hopfield Networks is All You Need* (Ramsauer et al. 2020)
+    * A different memory mechanism.
+    * Original Hopfield: store discrete binary pattern using which neurons fire.
+      * Here: make it continuous. 
+    * Then transformers are a special case! 
+      * Query retrieves from Hopfield network.
+      
+---
+      
+# Conclusion
+
+- A potentially widely applicable way to learn a memory storage system.
+- Related to transformer models.
+- Experiments are limited by datasets, but show some improvement.
+
+---
+
+class: inverse, middle, center
+
+# Thanks for listening!
+
+&lt;hr/&gt;
+
+Questions?
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>

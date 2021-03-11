@@ -1,33 +1,40 @@
 class: inverse, center, middle
 
-# Results
+# Related Work
 
 <hr/>
 
 ---
 
-# Evaluation
+# Literature
 
-.middle-content[
-The main draw of HashGNN is that retrieval can be performed in sublinear time, using an inverted index or approximate k-Nearest Neighbors index (especially those optimized for sparse and/or integer data). The top $k$ candidates are retrieved by Hamming distance, the minimum edit distance between two bit-strings.
+### Past
 
-This is significantly more efficient than pairwise approaches - which must make a prediction for each candidate in the collection - and slightly more efficient than approximate kNN for continuous data (but much more space-efficient).
-]
+* *Memory Networks* (Weston et al. 2015)
+  * Similar idea, but problem: hard max
+  * When you query you select the best key... but then can't backpropagate.
 
+### Present
+
+* Dominant tool: transformer
+* From *Attention is All You Need* (Vaswani et al. 2017)
+    * Recurrent attention -> self attention
+    * More efficient computationally, so we can use big datasets.
+    * Everything connected in constant operations instead of scaling with number of hops.
+
+### Future?
+
+* Example: *Hopfield Networks is All You Need* (Ramsauer et al. 2020)
+    * A different memory mechanism.
+    * Original Hopfield: store discrete binary pattern using which neurons fire.
+      * Here: make it continuous. 
+    * Then transformers are a special case! 
+      * Query retrieves from Hopfield network.
+      
 ---
+      
+# Conclusion
 
-# Datasets
-
-.middle-content.center[
-![](sections/img/content/datasets.png)
-]
-
-
-
----
-
-# Okay, but does it work?
-
-.middle-content.center[
-![](sections/img/content/metrics.png)
-]
+- A potentially widely applicable way to learn a memory storage system.
+- Related to transformer models.
+- Experiments are limited by datasets, but show some improvement.

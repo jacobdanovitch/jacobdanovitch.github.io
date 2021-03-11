@@ -240,8 +240,8 @@ class PositionalEncoding(nn.Module):
         self.register_buffer('encoding', self.get_encoding(sentence_size, embedding_dim))
 
     def forward(self, x, dim=-2):
-        while (encoding := self.encoding).dim() < x.dim():
-            encoding = encoding.unsqueeze(0)
+        encoding = self.encoding
+        while encoding.dim() < x.dim(): encoding = encoding.unsqueeze(0)
         return torch.sum(x * encoding.expand_as(x), dim=dim)
 
     @staticmethod
@@ -284,3 +284,21 @@ class PositionalEmbeddingBag(nn.Embedding):
 ---
 
 # Training
+
+.middle-content[
+
+* 10% of bAbI used as holdout
+* Trained for 100 epochs with batch size $= 32$
+  * Cost is not averaged per batch
+* Learning rate of $0.01$, halved every 25 epochs
+* Gradients rescaled to have a maximum norm of $40$
+* Linear start
+  * Removing every softmax operation except for the final answer prediction
+  * Re-insert when validation loss stops improving
+
+]
+
+???
+
+* The capacity of memory is restricted to the most recent 50 sentences
+* Linear start: LR = $0.005$
