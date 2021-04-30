@@ -17,14 +17,14 @@ services:
         - ./:/srv/jekyll
     command: jekyll serve -H 0.0.0.0 -P 4000 --config _config.yml,_config.dev.yml  --incremental # --force_polling --livereload
 
-  build:
-    image: jekyll/jekyll:3.8
-    container_name: jacobdanovitch-github-io-build
-    environment:
-        - JEKYLL_ENV=docker
-    ports:
-      - 4000:4000
-      - 35729:35729
-    volumes:
-        - ./:/srv/jekyll
-    command: jekyll build --config _config.yml,_config.mcgill.yml
+  # build:
+  #   image: jekyll/jekyll:3.8
+  #   container_name: jacobdanovitch-github-io-build
+  #   environment:
+  #       - JEKYLL_ENV=docker
+  #   ports:
+  #     - 4000:4000
+  #     - 35729:35729
+  #   volumes:
+  #       - ./:/srv/jekyll
+  #   command: jekyll build --config _config.yml,_config.mcgill.yml
